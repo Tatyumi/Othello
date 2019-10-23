@@ -21,17 +21,21 @@ class CTurnManager
 public:
 	// コンストラクタ
 	CTurnManager();
-
-
+	// ターンを表示
+	void DispTurn();
+	// ターン終了
+	void EndTurn();
 	// turnStrsのアクセサ
 	//void SetTurnStrs(int turnColor, const char* colorName) { turnStrs[turnColor][colorNameCount + nullPtr] = colorName; };
 	void SetTurnStrs(int turnColor, const char* colorName) { turnStrs[turnColor] = colorName; };
+	// turnのアクセサ
+	int GetTurn() { return turn; };
 
 private:
 	// ターン表示
 	//const char* turnStrs[turnColors][colorNameCount + nullPtr];
 	const char* turnStrs[turnColors];
-
+	// ターン
 	int turn;
 };
 
