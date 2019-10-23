@@ -1,37 +1,37 @@
-#include<conio.h>
+ï»¿#include<conio.h>
 #include "StoneManager.h"
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 CStoneManager::CStoneManager()
 {
 	cursorX = 0;
 	cursorY = 0;
 }
 
-// ƒJ[ƒ\ƒ‹ˆÚ“®
+// ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•
 void CStoneManager::MoveCursor()
 {
-	// ƒL[“ü—Íó•t
+	// ã‚­ãƒ¼å…¥åŠ›å—ä»˜
 	switch (_getch())
 	{
 
 		case'a':
-			// ¶‚ÉˆÚ“®
+			// å·¦ã«ç§»å‹•
 			cursorX--;
 			break;
 
 		case'd':
-			// ‰E‚ÉˆÚ“®
+			// å³ã«ç§»å‹•
 			cursorX++;
 			break;
 
 		case'w':
-			// ã‚ÉˆÚ“®
+			// ä¸Šã«ç§»å‹•
 			cursorY--;
 			break;
 
 		case's':
-			// ‰º‚ÉˆÚ“®
+			// ä¸‹ã«ç§»å‹•
 			cursorY++;
 			break;
 	}

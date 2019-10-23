@@ -1,22 +1,23 @@
-#pragma once
+ï»¿#pragma once
+
 
 class CStoneManager
 {
 public:
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	CStoneManager();
-	// ƒJ[ƒ\ƒ‹ˆÚ“®ˆ—
+	// ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•å‡¦ç†
 	void MoveCursor();
-	// cursorXƒAƒNƒZƒT
+	// cursorXã‚¢ã‚¯ã‚»ã‚µ
 	int GetCursorX() { return cursorX; };
-	// cursorYƒAƒNƒZƒT
+	// cursorYã‚¢ã‚¯ã‚»ã‚µ
 	int GetCursorY() { return cursorY; };
-private:
-	// ƒJ[ƒ\ƒ‹‚ÌxÀ•W
-	int cursorX;
-	// ƒJ[ƒ\ƒ‹‚ÌyÀ•W
-	int cursorY;
 
+private:
+	// ã‚«ãƒ¼ã‚½ãƒ«ã®xåº§æ¨™
+	int cursorX;
+	// ã‚«ãƒ¼ã‚½ãƒ«ã®yåº§æ¨™
+	int cursorY;
 };
 
 
