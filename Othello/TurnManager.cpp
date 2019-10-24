@@ -4,18 +4,19 @@
 // コンストラクタ
 CTurnManager::CTurnManager()
 {
-	SetTurnStrs(BLACK, "Black");
 	SetTurnStrs(WHITE, "White");
+	SetTurnStrs(BLACK, "Black");
+	SerTurn(WHITE);
 }
 
 // ターンを表示
 void CTurnManager::DispTurn()
 {
-	printf("%s TURN",turnStrs[GetTurn()]);
+	printf("%s ターン", turnStrs[turn]);
 }
 
-// ターン終了
-void CTurnManager::EndTurn()
+// ターン切り替え
+void CTurnManager::ChangeTurn()
 {
 	// 値を切り替える
 	turn ^= 1;

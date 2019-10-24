@@ -3,8 +3,8 @@
 // ターンによって指定される色
 enum ETurnColors
 {
-	BLACK,
-	WHITE,
+	WHITE = 0,      // 白
+	BLACK = 1,      // 黒
 };
 
 // 色の名前文字数
@@ -14,7 +14,7 @@ const int colorNameCount = 5;
 const int nullPtr = 1;
 
 // ターンで指定される色の種類
-const int turnColors = WHITE + 1;
+const int turnColors = BLACK + 1;
 
 class CTurnManager
 {
@@ -23,19 +23,18 @@ public:
 	CTurnManager();
 	// ターンを表示
 	void DispTurn();
-	// ターン終了
-	void EndTurn();
+	// ターン切り替え
+	void ChangeTurn();
 	// turnStrsのアクセサ
-	//void SetTurnStrs(int turnColor, const char* colorName) { turnStrs[turnColor][colorNameCount + nullPtr] = colorName; };
 	void SetTurnStrs(int turnColor, const char* colorName) { turnStrs[turnColor] = colorName; };
 	// turnのアクセサ
-	int GetTurn() { return turn; };
+	int GetTurn()const { return turn; };
+	void SerTurn(int turnNum) { turn = turnNum; };
 
 private:
 	// ターン表示
-	//const char* turnStrs[turnColors][colorNameCount + nullPtr];
 	const char* turnStrs[turnColors];
 	// ターン
 	int turn;
-};
 
+};
