@@ -1,15 +1,16 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include "BoardManager.h"
+#include "StoneManager.h"
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 CBoardManager::CBoardManager()
 {
-	// ‰Šú‰»
+	// åˆæœŸåŒ–
 	Initialize();
 }
 
-// ƒ{[ƒh‚Ì•\¦
-void CBoardManager::DispBoard(CStoneManager* cStone) 
+//ãƒœãƒ¼ãƒ‰ã®è¡¨ç¤º
+void CBoardManager::DispBoard(CStoneManager* cStone)
 {
 	for (int y = 0; y < BOARD_HEIGHT; y++)
 	{
@@ -17,27 +18,29 @@ void CBoardManager::DispBoard(CStoneManager* cStone)
 		{
 			const char* state = "";
 
-			// ƒJ[ƒ\ƒ‹‚ª¦‚·À•W‚©”»•Ê
+			// ã‚«ãƒ¼ã‚½ãƒ«ãŒç¤ºã™åº§æ¨™ã‹åˆ¤åˆ¥
 			if ((cStone->GetCursorY() == y) && (cStone->GetCursorX() == x))
 			{
-				// ¦‚·À•W‚Å‚ ‚éê‡
+				// ç¤ºã™åº§æ¨™ã®å ´åˆ
 
-				// ƒJ[ƒ\ƒ‹‚ğ‘ã“ü
-				state = "";
+				// ã‚«ãƒ¼ã‚½ãƒ«ã‚’ä»£å…¥
+				state = "â—";
 			}
 			else
 			{
-				// ƒ{[ƒh‚Ìó‘Ô‚ğ”»•Ê
-				switch (board[y][x])
+				// ãã‚Œä»¥å¤–ã®åº§æ¨™ã®å ´åˆ
+
+				// ãƒœãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’åˆ¤åˆ¥
+				switch (GetBoard(y, x))
 				{
 					case NONE:
-						state = "E";
-						break;
-					case BLACK_STONE:
-						state = "œ";
+						state = "ãƒ»";
 						break;
 					case WHITE_STONE:
-						state = "Z";
+						state = "â—";
+						break;
+					case BLACK_STONE:
+						state = "ã€‡";
 						break;
 				}
 			}
@@ -48,15 +51,25 @@ void CBoardManager::DispBoard(CStoneManager* cStone)
 	}
 }
 
-// ‰Šú‰»
+// åˆæœŸåŒ–
 void CBoardManager::Initialize()
 {
 	for (int y = 0; y < BOARD_HEIGHT; y++)
 	{
 		for (int x = 0; x < BOARD_WEIGHT; x++)
 		{
-			// ƒ{[ƒh‘S‘Ì‚ğNONE‚Ìó‘Ô‚É‚·‚é
+			// ãƒœãƒ¼ãƒ‰å…¨ä½“ã‚’NONEã®çŠ¶æ…‹ã«ã™ã‚‹
 			SetBoard(y, x, NONE);
 		}
 	}
+
+	// ãƒœãƒ¼ãƒ‰ã®ç¸¦ã€æ¨ªãã‚Œãã‚Œã®åŠåˆ†ã®é•·ã•ã‚’å–å¾—
+	int heightCenter = BOARD_HEIGHT / 2;
+	int weightCenter = BOARD_WEIGHT / 2;
+
+	// ä¸­å¤®ã«çŸ³ã‚’ç½®ã
+	SetBoard(heightCenter - 1, weightCenter - 1, WHITE_STONE);
+	SetBoard(heightCenter - 1, weightCenter, BLACK_STONE);
+	SetBoard(heightCenter, weightCenter, WHITE_STONE);
+	SetBoard(heightCenter, weightCenter - 1, BLACK_STONE);
 }

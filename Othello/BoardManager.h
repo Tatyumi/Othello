@@ -1,32 +1,37 @@
-#pragma once
-#include "StoneManager.h"
+ï»¿#pragma once
 
-// c•
+// ç¸¦å¹…
 const int BOARD_HEIGHT = 8;
-// ‰¡•
+// æ¨ªå¹…
 const int BOARD_WEIGHT = 8;
 
-// ƒ{[ƒh‚Ìó‘Ô
+// ãƒœãƒ¼ãƒ‰ã®çŠ¶æ…‹
 enum EBoadState
 {
-	NONE		= -1,		// ‰½‚à‚È‚¢
-	BLACK_STONE =  0,       // •ŒéÎ‚ª’u‚¢‚Ä‚ ‚é
-	WHITE_STONE =  1,       // ”’ŒéÎ‚ª’u‚¢‚Ä‚ ‚é
+	NONE = -1,   // ä½•ã‚‚ãªã„
+	WHITE_STONE = 0,       // ç™½ç¢çŸ³ãŒç½®ã„ã¦ã‚ã‚‹
+	BLACK_STONE = 1,       // é»’ç¢çŸ³ãŒç½®ã„ã¦ã‚ã‚‹
 };
+
+class CStoneManager;
 
 class CBoardManager
 {
-public:
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	CBoardManager();
-	//‰Šú‰»
-	void Initialize();
-	// ƒ{[ƒh‚Ì•\¦
-	void DispBoard(CStoneManager* cStone);
-	//board‚ÌƒAƒNƒZƒT
-	void SetBoard(int vecY, int vecX, int state) { board[vecY][vecX] = state; };
-
 private:
-	// ƒ{[ƒh
+	// ãƒœãƒ¼ãƒ‰
 	int board[BOARD_HEIGHT][BOARD_WEIGHT];
+
+	CStoneManager* cStone;
+public:
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	CBoardManager();
+	//åˆæœŸåŒ–
+	void Initialize();
+	// ãƒœãƒ¼ãƒ‰ã®è¡¨ç¤º
+	void DispBoard(CStoneManager* cStone);
+
+	//boardã®ã‚¢ã‚¯ã‚»ã‚µ
+	void SetBoard(int vecY, int vecX, int state) { board[vecY][vecX] = state; };
+	int GetBoard(int vecY, int vecX) { return board[vecY][vecX]; };
+
 };
